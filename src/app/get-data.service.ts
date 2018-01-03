@@ -4,7 +4,6 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Football } from './football.model';
 import 'rxjs/add/operator/map';
-import {deserialize} from 'serializer.ts/Serializer';
 
 const API_URL = environment.apiUrl;
 
@@ -13,11 +12,12 @@ export class GetDataService {
 
   constructor(private http: Http) { }
 
-  public getAllData(): Observable<any> {
+  public getAllData(datetime: string): Observable<any> {
     return this.http
-      .get(API_URL + '/scrape')
+      // .get('assets/output.json')
+      .get(API_URL + 'scrape:' + datetime)
       .map(response => {
-        const value =  deserialize<Football[]>(Football, response);
+        const value =  response.json();
         console.log(value);
         return value;
       });

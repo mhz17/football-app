@@ -1,16 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="container">
 
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+  <h2>
+    {{title}}
+  </h2>
 
-  <button type="button" class="btn btn-primary" (click)="getAllData()">Get Data</button>
+  <div class="row">
+    <div class="col-md-2">
+      <input id="date" name="date" [(ngModel)]="dt" required="true" placeholder="MM/DD/YYY" type="text" />
+    </div>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-primary" (click)="getAllData()">Get Data</button>
+    </div>
+  </div>
 
-  {{jsonData}}
-  <!-- <ul>
-      <li *ngFor="let obj of jsonData">{{obj | json}}</li>
-   </ul> -->
-
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngFor="let obj of footballData">{{obj.league}} - {{obj.homeTeam}} {{obj.homeScore}}:{{obj.awayScore}} {{obj.awayTeam}}</div>
+    </div>
+  </div>
 
 </div>
