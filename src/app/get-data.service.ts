@@ -17,10 +17,10 @@ export class GetDataService {
       // .get('assets/output.json')
       .get(API_URL + 'scrape:' + datetime)
       .map(response => {
-        const value =  response.json();
-        console.log(value);
-        return value;
-      });
+        return response.json();
+      },  error => {
+        return error;
+     });
   }
 
 }

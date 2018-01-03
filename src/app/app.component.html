@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-md-2">
-      <input id="date" name="date" [(ngModel)]="dt" required="true" placeholder="MM/DD/YYY" type="text" />
+      <p-calendar [(ngModel)]="dt" dateFormat="yy-mm-dd" (onSelect) ="removeValidation()"></p-calendar>
     </div>
     <div class="col-md-1">
       <button type="button" class="btn btn-primary" (click)="getAllData()">Get Data</button>
@@ -19,5 +19,9 @@
       <div *ngFor="let obj of footballData">{{obj.league}} - {{obj.homeTeam}} {{obj.homeScore}}:{{obj.awayScore}} {{obj.awayTeam}}</div>
     </div>
   </div>
+
+ <div *ngIf="errorMessage" class="validation">
+  {{errorMessage}}
+ </div>
 
 </div>
