@@ -5,6 +5,7 @@ import {deserialize} from 'serializer.ts/Serializer';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { last } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-root',
@@ -21,29 +22,38 @@ export class AppComponent {
   constructor(private service: GetDataService) {
   }
 
-  removeValidation() {
+  removeValidation($event: any) {
     if (this.dt !== undefined) {
       this.errorMessage = '';
+      this.dt = this.convertTime($event);
     }
   }
 
+  convertTime(str: string) {
+    const date = new Date(str);
+    const mnth = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day  = ('0' + date.getDate()).slice(-2);
+    const year  = ( date.getFullYear());
+    return year + '-' + mnth + '-' + day;
+}
+
   getAllData() {
-    console.log('button clicked!');
+    // console.log('button clicked!');
     if (this.dt === undefined) {
       this.errorMessage = 'Date cannot be blank';
     } else {
-      console.log(this.dt);
-      // this.service.getAllData(this.dt).subscribe(
-      //   (data) => {
-      //     this.footballData = data;
-      //     for (const a of this.footballData) {
-      //       deserialize<Football[]>(Football, a);
-      //     }
-      //   }, error => {
-      //     this.errorMessage = error;
-      //     return error;
-      //   }
-      // );
+      this.errorMessage = '';
+      this.service.getAllData(this.dt).subscribe(
+        (data) => {
+          this.footballData = data;
+          for (const a of this.footballData) {
+            deserialize<Football[]>(Football, a);
+          }
+        }, error => {
+          this.errorMessage = error;
+          return error;
+        }
+      );
     }
 
   }

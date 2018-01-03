@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-md-2">
-      <p-calendar [(ngModel)]="dt" dateFormat="yy-mm-dd" (onSelect) ="removeValidation()"></p-calendar>
+      <p-calendar [(ngModel)]="dt" ng-value="" dateFormat="yy-mm-dd" (onSelect) ="removeValidation($event)"></p-calendar>
     </div>
     <div class="col-md-1">
       <button type="button" class="btn btn-primary" (click)="getAllData()">Get Data</button>
