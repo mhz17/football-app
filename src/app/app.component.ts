@@ -38,8 +38,9 @@ export class AppComponent {
 }
 
   getAllData() {
-    // console.log('button clicked!');
-    if (this.dt === undefined) {
+    console.log(this.dt);
+    if (this.dt === undefined || this.dt === null ) {
+      this.footballData = null;
       this.errorMessage = 'Date cannot be blank';
     } else {
       this.errorMessage = '';
