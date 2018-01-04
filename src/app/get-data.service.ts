@@ -13,9 +13,16 @@ export class GetDataService {
   constructor(private http: Http) { }
 
   public getAllData(datetime: string): Observable<any> {
+    // const url = API_URL + 'scrape:' + datetime;
+    let url = 'assets/output.json';
+
+    if (datetime === '2018-01-01') {
+      url = 'assets/output1.json';
+    }
+
     return this.http
       // .get('assets/output.json')
-      .get(API_URL + 'scrape:' + datetime)
+      .get(url)
       .map(response => {
         return response.json();
       },  error => {

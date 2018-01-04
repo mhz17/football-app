@@ -1,0 +1,22 @@
+[
+    {
+        "date": "2018-01-02",
+        "league": "Test League",
+        "link": "http://www.bbc.co.uk/sport/football/42411056",
+        "homeTeam": "Test Home",
+        "awayTeam": "Test Away",
+        "homeScore": "1",
+        "awayScore": "2",
+        "homePossessions": "61%",
+        "awayPossessions": "39%",
+        "homeShots": "10",
+        "awayShots": "11",
+        "homeShotsOnTarget": "3",
+        "awayShotsOnTarget": "4",
+        "homeCorners": "4",
+        "awayCorners": "7",
+        "homeFouls": "8",
+        "awayFouls": "11",
+        "referee": "Stuart Attwell",
+        "attendance": "28,411"
+    }]
