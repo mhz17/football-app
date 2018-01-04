@@ -1,11 +1,12 @@
 import { Component, Input, NgModule } from '@angular/core';
 import { GetDataService } from './get-data.service';
 import { Football } from './football.model';
-import {deserialize} from 'serializer.ts/Serializer';
+import { deserialize } from 'serializer.ts/Serializer';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { last } from '@angular/router/src/utils/collection';
+// import { PlatformBrowserDynamic } from '@angular/platform-browser';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-root',
