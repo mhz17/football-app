@@ -44,17 +44,24 @@ export class AppComponent {
       this.errorMessage = 'Date cannot be blank';
     } else {
       this.errorMessage = '';
-      this.service.getAllData(this.dt).subscribe(
-        (data) => {
-          this.footballData = data;
-          for (const a of this.footballData) {
-            deserialize<Football[]>(Football, a);
+
+      setTimeout(() => {
+
+        this.service.getAllData(this.dt).subscribe(
+          (data) => {
+            this.footballData = data;
+            for (const a of this.footballData) {
+              deserialize<Football[]>(Football, a);
+            }
+          }, error => {
+            this.errorMessage = error;
+            return error;
           }
-        }, error => {
-          this.errorMessage = error;
-          return error;
-        }
-      );
+        );
+
+      }, 4000);
+
+
     }
 
   }
