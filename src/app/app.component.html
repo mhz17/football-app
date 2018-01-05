@@ -6,23 +6,25 @@
   </h2>
 
   <div class="row">
-    <div class="col-md-2">
-      <p-calendar [(ngModel)]="dt" ng-value="" dateFormat="yy-mm-dd" (onSelect) ="removeValidation($event)"></p-calendar>
+    <div class="col-md-2 calendar">
+      <p-calendar [(ngModel)]="dt" ng-value="" dateFormat="yy-mm-dd" (onSelect)="removeValidation($event)"></p-calendar>
     </div>
     <div class="col-md-1">
-      <button type="button" class="btn btn-primary" (click)="getAllData()">Get Data</button>
+      <button type="button" class="btn btn-success" (click)="getAllData()" [class.disabled]="dataLoading">Get Data
+        <i class="fa fa-refresh fa-spin" *ngIf="dataLoading"></i>
+      </button>
     </div>
   </div>
-  
-  <div class="row" *ngIf="errorMessage"><div class="col-md-2">Data loading...</div><div class="col-md-1"><mat-spinner [diameter]="20"></mat-spinner></div></div>
-  <div class="row">
+  <div class="row results">
     <div class="col-md-12">
       <div *ngFor="let obj of footballData">{{obj.league}} - {{obj.homeTeam}} {{obj.homeScore}}:{{obj.awayScore}} {{obj.awayTeam}}</div>
     </div>
   </div>
-
- <div *ngIf="errorMessage" class="validation">
-  {{errorMessage}}
- </div>
-
+  <div class="row">
+    <div class="col-md-2">
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{errorMessage}}
+      </div>
+    </div>
+  </div>
 </div>

@@ -5,8 +5,6 @@ import { deserialize } from 'serializer.ts/Serializer';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { PlatformBrowserDynamic } from '@angular/platform-browser';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +13,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   providers: [GetDataService]
 })
 export class AppComponent {
-  title = 'Football App';
+  title = 'Football Results';
   footballData: Football[];
   dt: string;
   errorMessage: string;
+  dataLoading: boolean;
 
   constructor(private service: GetDataService) {
+    this.dataLoading = false;
   }
 
   removeValidation($event: any) {
@@ -39,13 +39,13 @@ export class AppComponent {
 }
 
   getAllData() {
-    console.log(this.dt);
+
+    this.footballData = null;
     if (this.dt === undefined || this.dt === null ) {
-      this.footballData = null;
       this.errorMessage = 'Date cannot be blank';
     } else {
       this.errorMessage = '';
-
+      this.dataLoading = true;
       setTimeout(() => {
 
         this.service.getAllData(this.dt).subscribe(
@@ -54,6 +54,7 @@ export class AppComponent {
             for (const a of this.footballData) {
               deserialize<Football[]>(Football, a);
             }
+            this.dataLoading = false;
           }, error => {
             this.errorMessage = error;
             return error;

@@ -1,3 +1,19 @@
 .validation{
     color: red;
 }
+
+.body{
+    font-family: sans-serif;
+}
+
+.results{
+    margin-top: 20px;
+}
+
+.calendar{
+    padding-top: 2px;
+}
+
+.btn-success, .btn-success:hover{
+    border :none;
+}

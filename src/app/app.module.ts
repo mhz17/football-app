@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { GetDataService } from './get-data.service';
 import { CalendarModule, Calendar } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material';
     HttpModule,
     FormsModule,
     CalendarModule,
-    BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    BrowserAnimationsModule
   ],
   providers: [GetDataService],
   bootstrap: [AppComponent]
