@@ -7,14 +7,21 @@
 }
 
 .rowWithPadding{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .calendar{
     padding-top: 2px;
 }
 
-.btn-success, .btn-success:hover{
+.datelabel{
+    padding-top: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.btn-success, 
+.btn-success:hover{
     border :none;
 }
 
@@ -26,6 +33,7 @@
     width: 18%;
 }
 
-.col-sm-1.score{
+.col-sm-1.score, 
+.col-md-1.datelabel{
     width: 5%;
 }
