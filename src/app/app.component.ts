@@ -5,6 +5,7 @@ import { deserialize } from 'serializer.ts/Serializer';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,10 @@ export class AppComponent {
 
   constructor(private service: GetDataService) {
     this.dataLoading = false;
+  }
+
+  showExportButton(): boolean {
+    return (this.footballData === undefined || this.footballData === null ? false : this.footballData.length > 0);
   }
 
   removeValidation($event: any) {
@@ -68,5 +73,16 @@ export class AppComponent {
 
   }
 
+  exportData() {
+    const options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: false,
+      useBom: true
+    };
+    const component = new Angular2Csv(this.footballData, 'FootballStats' + this.dt, options);
+  }
 
 }

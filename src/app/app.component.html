@@ -15,7 +15,7 @@
       </button>
     </div>
   </div>
-  <div class="row results">
+  <div class="row rowWithPadding">
     <div class="col-md-12">
       <div *ngFor="let obj of footballData">{{obj.league}} - {{obj.homeTeam}} {{obj.homeScore}}:{{obj.awayScore}} {{obj.awayTeam}}</div>
     </div>
@@ -27,4 +27,10 @@
       </div>
     </div>
   </div>
+  <div class="row rowWithPadding">
+      <div class="col-md-2" *ngIf="showExportButton()">
+          <button type="button" class="btn btn-warning" (click)="exportData()"><i class="fa fa-file-o"></i> Export to CSV</button>
+      </div>
+    </div>
+
 </div>
