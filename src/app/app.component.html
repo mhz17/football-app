@@ -16,20 +16,30 @@
   </div>
   <div class="row rowWithPadding">
     <div class="col-md-12">
-      <div *ngFor="let obj of footballData">{{obj.league}} - {{obj.homeTeam}} {{obj.homeScore}}:{{obj.awayScore}} {{obj.awayTeam}}</div>
+      <div *ngFor="let obj of footballData">
+        <div class="row">
+          <div class="col-sm-2 league">{{obj.league}}</div>
+          <div class="col-sm-2 team">{{obj.homeTeam}}</div>
+          <div class="col-sm-1 score">
+            <b>{{obj.homeScore}}:{{obj.awayScore}}</b>
+          </div>
+          <div class="col-sm-2 team">{{obj.awayTeam}}</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
         {{errorMessage}}
       </div>
     </div>
   </div>
   <div class="row rowWithPadding">
-      <div class="col-md-2" *ngIf="showExportButton()">
-          <button type="button" class="btn btn-warning" (click)="exportData()"><i class="fa fa-file-o"></i> Export to CSV</button>
-      </div>
+    <div class="col-md-2" *ngIf="showExportButton()">
+      <button type="button" class="btn btn-warning" (click)="exportData()">
+        <i class="fa fa-file-o"></i> Export to CSV</button>
     </div>
+  </div>
 
 </div>

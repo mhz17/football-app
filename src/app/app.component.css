@@ -17,3 +17,15 @@
 .btn-success, .btn-success:hover{
     border :none;
 }
+
+.col-sm-2.league{
+    width: 12%;
+}
+
+.col-sm-2.team{
+    width: 18%;
+}
+
+.col-sm-1.score{
+    width: 5%;
+}
