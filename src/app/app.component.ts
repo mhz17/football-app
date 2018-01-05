@@ -6,6 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/takeUntil';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/observable/timer';
 
 @Component({
   selector: 'app-root',
@@ -38,36 +43,35 @@ export class AppComponent {
   convertTime(str: string) {
     const date = new Date(str);
     const mnth = ('0' + (date.getMonth() + 1)).slice(-2);
-    const day  = ('0' + date.getDate()).slice(-2);
-    const year  = ( date.getFullYear());
+    const day = ('0' + date.getDate()).slice(-2);
+    const year = (date.getFullYear());
     return year + '-' + mnth + '-' + day;
-}
+  }
 
   getAllData() {
 
     this.footballData = null;
-    if (this.dt === undefined || this.dt === null ) {
+    if (this.dt === undefined || this.dt === null) {
       this.errorMessage = 'Date cannot be blank';
     } else {
       this.errorMessage = '';
       this.dataLoading = true;
-      setTimeout(() => {
 
-        this.service.getAllData(this.dt).subscribe(
-          (data) => {
-            this.footballData = data;
-            for (const a of this.footballData) {
-              deserialize<Football[]>(Football, a);
-            }
-            this.dataLoading = false;
-          }, error => {
-            this.errorMessage = error;
-            return error;
+      const timer = Observable.timer(1000);
+
+      this.service.getAllData(this.dt).take(1).subscribe(
+        (data) => {
+          this.footballData = data;
+          for (const a of this.footballData) {
+            deserialize<Football[]>(Football, a);
           }
-        );
-
-      }, 4000);
-
+          this.dataLoading = false;
+        }, error => {
+          this.dataLoading = false;
+          this.errorMessage = error;
+          return error;
+        }
+      );
 
     }
 
@@ -84,5 +88,4 @@ export class AppComponent {
     };
     const component = new Angular2Csv(this.footballData, 'FootballStats' + this.dt, options);
   }
-
 }
