@@ -17,12 +17,12 @@ export class GetDataService {
   constructor(private http: Http) { }
 
   public getAllData(datetime: string): Observable<any> {
-    const url = API_URL + 'scrape:' + datetime;
+   // const url = API_URL + 'scrape:' + datetime;
 
-    // let url = 'assets/output.json';
-    // if (datetime === '2018-01-01') {
-    //   url = 'assets/output1.json';
-    // }
+    let url = 'assets/output.json';
+    if (datetime === '2018-01-01') {
+      url = 'assets/output1.json';
+    }
 
     return this.http
       .get(url)
