@@ -1,0 +1,32 @@
+[debug] [2018-01-08T13:05:41.173Z] ----------------------------------------------------------------------
+[debug] [2018-01-08T13:05:41.175Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mzielinska\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only hosting
+[debug] [2018-01-08T13:05:41.175Z] CLI Version:   3.16.0
+[debug] [2018-01-08T13:05:41.175Z] Platform:      win32
+[debug] [2018-01-08T13:05:41.175Z] Node Version:  v8.9.4
+[debug] [2018-01-08T13:05:41.175Z] Time:          Mon Jan 08 2018 13:05:41 GMT+0000 (GMT Standard Time)
+[debug] [2018-01-08T13:05:41.176Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-08T13:05:41.186Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-08T13:05:41.186Z] > authorizing via signed-in user
+[debug] [2018-01-08T13:05:41.188Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/football-stats-56774  
+  
+ Mon Jan 08 2018 13:05:41 GMT+0000 (GMT Standard Time)
+[debug] [2018-01-08T13:05:42.012Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-08T13:05:42.013Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/football-stats-56774/tokens  
+  
+ Mon Jan 08 2018 13:05:42 GMT+0000 (GMT Standard Time)
+[debug] [2018-01-08T13:05:42.694Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\mzielinska\Documents\Visual Studio 2017\Projects\football-app'...
+[info] 
+[debug] [2018-01-08T13:05:42.697Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/football-stats-56774  
+  
+ Mon Jan 08 2018 13:05:42 GMT+0000 (GMT Standard Time)
+[debug] [2018-01-08T13:05:43.446Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-08T13:05:43.447Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/794302850666/clients/_:getWebAppConfig  
+  
+ Mon Jan 08 2018 13:05:43 GMT+0000 (GMT Standard Time)
+[debug] [2018-01-08T13:05:43.915Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: src/app
+[info] +  hosting: Local server: http://localhost:5000
+
