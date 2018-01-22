@@ -10,7 +10,7 @@
       <p-calendar [(ngModel)]="dt" item-width="100" class="calendarcontrol" ng-value="" dateFormat="yy-mm-dd" (onSelect)="removeValidation($event)"></p-calendar>
     </div>
     <div class="col-md-1">
-      <button type="button" class="btn btn-success btnGetData" (click)="getAllData()" [class.disabled]="dataLoading">Get Data
+      <button type="button" class="btn btn-success" (click)="getAllData()" [class.disabled]="dataLoading">Get Data
         <i class="fa fa-refresh fa-spin" *ngIf="dataLoading"></i>
       </button>
     </div>
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
         {{errorMessage}}
       </div>

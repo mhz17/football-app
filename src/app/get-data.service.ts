@@ -23,6 +23,7 @@ export class GetDataService {
     return this.http
       .get(url)
       .map(response => {
+        console.log(response);
         return response.json();
       },  error => {
         return error;
