@@ -17,17 +17,8 @@ export class GetDataService {
   constructor(private http: Http) { }
 
   public getAllData(datetime: string): Observable<any> {
-   // const url = API_URL + 'scrape:' + datetime;
 
-    let url = 'assets/output.json';
-
-    if (datetime === '2018-01-01') {
-      url = 'assets/output1.json';
-    }
-
-    if (datetime === '2018-01-06') {
-      url = 'assets/output2.json';
-    }
+   const url = API_URL + '/date:' + datetime;
 
     return this.http
       .get(url)
