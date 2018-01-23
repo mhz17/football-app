@@ -24,20 +24,20 @@ export class GetDataService {
       .get(url)
       .map(response => {
 
+        console.log(response);
         if (response['_body'].includes('Unfortunately') ||
-        response['_body'].includes('500') ||
-        response['_body'].includes('502') ||
-        response['_body'].includes('503') ||
-        response['_body'].includes('504') ||
+        response['_body'].includes('the server responded with a status') ||
         response['_body'].includes('No Results for selected date')) {
+          console.log('error here');
           const e = new Error(response['_body']);
           throw e;
         }
 
+        console.log('response');
         return response.json();
       },  error => {
         return error;
-     }).timeout(120000);
+     }).timeout(160000);
   }
 
 }
