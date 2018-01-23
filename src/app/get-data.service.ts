@@ -23,7 +23,13 @@ export class GetDataService {
     return this.http
       .get(url)
       .map(response => {
-        console.log(response);
+
+        if (response['_body'].includes('Unfortunately') || response['_body'].includes('Timeout') ) {
+          console.log('here');
+          const e = new Error(response['_body']);
+          throw e;
+        }
+
         return response.json();
       },  error => {
         return error;

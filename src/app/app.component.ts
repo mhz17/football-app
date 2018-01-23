@@ -66,6 +66,7 @@ export class AppComponent {
             deserialize<Football[]>(Football, a);
           }
           this.dataLoading = false;
+
         }, error => {
           this.dataLoading = false;
           this.errorMessage = error;
