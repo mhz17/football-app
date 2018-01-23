@@ -28,8 +28,8 @@ export class GetDataService {
         response['_body'].includes('500') ||
         response['_body'].includes('502') ||
         response['_body'].includes('503') ||
-        response['_body'].includes('504')) {
-          console.log('here');
+        response['_body'].includes('504') ||
+        response['_body'].includes('No Results for selected date')) {
           const e = new Error(response['_body']);
           throw e;
         }
