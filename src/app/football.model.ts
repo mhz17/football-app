@@ -19,5 +19,6 @@ export class Football {
        public awayFouls: string,
        public referee: string,
        public attendance: string
-    ) {}
+    ) {
+    }
 }

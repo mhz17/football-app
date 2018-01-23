@@ -85,8 +85,32 @@ export class AppComponent {
       decimalseparator: '.',
       showLabels: true,
       showTitle: false,
-      useBom: true
+      useBom: true,
+      headers: this.getHeaders()
     };
     const component = new Angular2Csv(this.footballData, 'FootballStats' + this.dt, options);
   }
+
+  getHeaders(): Array<string> {
+    return ['date',
+      'league',
+      'link',
+      'homeTeam',
+      'awayTeam',
+      'homeScore',
+      'awayScore',
+      'homePossessions',
+      'awayPossessions',
+      'homeShots',
+      'awayShots',
+      'homeShotsOnTarget',
+      'awayShotsOnTarget',
+      'homeCorners',
+      'awayCorners',
+      'homeFouls',
+      'awayFouls',
+      'referee',
+      'attendance'];
+  }
+
 }
