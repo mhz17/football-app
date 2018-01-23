@@ -24,7 +24,11 @@ export class GetDataService {
       .get(url)
       .map(response => {
 
-        if (response['_body'].includes('Unfortunately') || response['_body'].includes('Timeout') ) {
+        if (response['_body'].includes('Unfortunately') ||
+        response['_body'].includes('500') ||
+        response['_body'].includes('502') ||
+        response['_body'].includes('503') ||
+        response['_body'].includes('504')) {
           console.log('here');
           const e = new Error(response['_body']);
           throw e;

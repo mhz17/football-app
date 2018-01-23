@@ -19,7 +19,7 @@
     <div class="col-md-12">
       <div *ngFor="let obj of footballData">
         <div class="row">
-          <div class="col-sm-2 league">{{obj.league}}</div>
+          <div class="col-sm-2 league"><div class="truncatetext">{{obj.league}}</div></div>
           <div class="col-sm-2 team"><div class="truncatetext">{{obj.homeTeam}}</div></div>
           <div class="col-sm-1 score">
             <b>{{obj.homeScore}}:{{obj.awayScore}}</b>
